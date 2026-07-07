@@ -1,0 +1,29 @@
+const prisma = require("../db");
+
+exports.getProjects = async (req, res) => {
+    const projects = await prisma.projects.findMany();
+
+    if (projects.length === 0) {
+        return res.status(404).json({
+            message: "No projects found."
+        });
+    }
+
+    res.json(projects);
+};
+
+exports.createProject = async (req, res) => {
+    const { title, description = "", url = "" } = req.body;
+
+    if (!title) {
+        return res.status(400).json({
+            error: "Project title is required."
+        });
+    }
+
+    const project = await prisma.projects.create({
+        data: { title, description, url }
+    });
+
+    res.status(201).json(project);
+};

@@ -76,10 +76,15 @@ body {
   min-height: 100vh;
 }
 
+#navbar {
+  width: 100%;
+}
+
 nav {
   display: flex; 
   align-items: center;
   justify-content: end; 
+  justify-self: center;
   color: var(--textDim);
   width: 90%;
   gap: 2rem;
@@ -267,7 +272,8 @@ main {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 0; /* Keeps it behind your text content */
+  z-index: 1; /* Keeps it behind your text content */
+  pointer-events: none;
 }
 
 .action-btn-container {
@@ -299,7 +305,7 @@ main {
   height: 280vh;
   background: linear-gradient(180deg, hsl(156, 51%, 10%) 0%, var(--secondary) 100%);
   margin-top: -250px;
-  z-index: -1;
+  z-index: 0;
 }
 
 .cards-container{
@@ -325,10 +331,7 @@ main {
 
   text-align:center;
 
-  width:100%;
-
-  z-index:10;
-
+  width:100%; 
   pointer-events:none; /* optional so cards stay clickable */
 }
 /* CARD */
@@ -462,20 +465,19 @@ main {
 
 .card p{
   color:var(--textDim);
-
+  text-align: justify;
   line-height:1.6;
   font-size:0.95rem;
 }
 
 .card a{
   color:var(--primary);
-
   text-decoration:none;
 
   font-weight:600;
-
-  width:fit-content;
-
+  z-index: 1;
+  
+  width:fit-content; 
   transition:
     color 0.25s ease,
     text-shadow 0.25s ease;
@@ -484,6 +486,7 @@ main {
 .card a:hover{
   color:var(--accent);
 
+  cursor: pointer;
   text-shadow:
     0 0 10px var(--accentHi);
 }

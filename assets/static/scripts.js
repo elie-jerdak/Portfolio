@@ -178,66 +178,131 @@ observer.observe(hero);
     });
 })();
 
-/* GSAP for project cards scroll trigger */
 
-gsap.registerPlugin(ScrollTrigger);
+//dynamic loading of projects in home page:
+async function loadProjects() {
+    const container = document.getElementById("projects-container");
 
-/* MAIN TIMELINE */
+    if (!container) {
+        console.error("Projects container not found.");
+        return;
+    }
 
-const tl = gsap.timeline({
-  scrollTrigger:{
-    trigger:".projects",
-    start:"top top",
-    end:"center center",
-    scrub:1
-  }
-});
+    try {
+        const response = await fetch("/projects/featured");
 
-/* ORGANIZE INTO READABLE POSITIONS */
-gsap.set(".card1", {
-  xPercent: -50,
-  yPercent: -30,
-  rotate: -14
-});
+        if (!response.ok) {
+            throw new Error(`Failed to fetch projects: ${response.status}`);
+        }
 
-gsap.set(".card2", {
-  xPercent: -50,
-  yPercent: -30,
-  rotate: 8
-});
+        const projects = await response.json();
 
-gsap.set(".card3", {
-  xPercent: -50,
-  yPercent: -30,
-  rotate: -6
-});
+        if (!projects || projects.length === 0) {
+            container.innerHTML = `
+                <p>No featured projects available.</p>
+            `;
+            return;
+        }
 
-gsap.set(".project-header", {
-  xPercent: 0,
-  yPercent: -260 
-});
+        container.innerHTML = "";
 
-tl.to(".project-header", {
-  y: -40, 
-  opacity: 1
-}, 0);
+        projects.forEach((project, index) => {
 
+            const card = document.createElement("div");
 
-tl.to(".card1",{
-  x:-440,
-  y:-60,
-  rotate:0
-},0);
+            card.classList.add(
+                "card",
+                `card${index + 1}`
+            );
 
-tl.to(".card2",{
-  x:0,
-  y:20,
-  rotate:0
-},0);
+            card.innerHTML = `
+                <div>
+                    <h2>${project.title}</h2>
 
-tl.to(".card3",{
-  x:440,
-  y:-60,
-  rotate:0
-},0);
+                    <p>
+                        ${project.description}
+                    </p>
+                </div>
 
+                <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+                    View Project
+                </a>
+            `;
+
+            container.appendChild(card);
+
+            initializeProjectAnimations(); //load animations after appending the card to the DOM
+        });
+
+    } catch (error) {
+        console.error("Error loading projects:", error);
+
+        container.innerHTML = `
+            <p>Unable to load projects.</p>
+        `;
+    }
+}
+
+loadProjects();
+
+//GSAP animations for projects section
+function initializeProjectAnimations() {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".projects",
+            start: "top top",
+            end: "center center",
+            scrub: 1
+        }
+    });
+
+    gsap.set(".card1", {
+        xPercent: -50,
+        yPercent: -30,
+        rotate: -14
+    });
+
+    gsap.set(".card2", {
+        xPercent: -50,
+        yPercent: -30,
+        rotate: 8
+    });
+
+    gsap.set(".card3", {
+        xPercent: -50,
+        yPercent: -30,
+        rotate: -6
+    });
+
+    gsap.set(".project-header", {
+        xPercent: 0,
+        yPercent: -260
+    });
+
+    tl.to(".project-header", {
+        y: -40,
+        opacity: 1
+    }, 0);
+
+    tl.to(".card1", {
+        x: -440,
+        y: -60,
+        rotate: 0
+    }, 0);
+
+    tl.to(".card2", {
+        x: 0,
+        y: 20,
+        rotate: 0
+    }, 0);
+
+    tl.to(".card3", {
+        x: 440,
+        y: -60,
+        rotate: 0
+    }, 0);
+
+}

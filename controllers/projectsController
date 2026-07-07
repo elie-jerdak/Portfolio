@@ -12,6 +12,24 @@ exports.getProjects = async (req, res) => {
     res.json(projects);
 };
 
+exports.getFeaturedProjects = async (req, res) => {
+
+    const projects = await prisma.projects.findMany({
+        where: {
+            featured: true
+        },
+        take: 3
+    });
+
+    if (projects.length === 0) {
+        return res.status(404).json({
+            message: "No projects found."
+        });
+    }
+
+    res.json(projects);
+};
+
 exports.createProject = async (req, res) => {
     const { title, description = "", url = "" } = req.body;
 
@@ -27,3 +45,4 @@ exports.createProject = async (req, res) => {
 
     res.status(201).json(project);
 };
+

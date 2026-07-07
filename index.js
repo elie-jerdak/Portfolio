@@ -14,6 +14,11 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "assets"))); 
 
+app.use(
+    "/components",
+    express.static(path.join(__dirname, "views", "components"))
+);
+
 app.use("/", homeRoutes);
 app.use("/projects", projectRoutes);
 
@@ -23,5 +28,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
-  console.log(`Server is running at: http://localhost:${PORT}`);
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`Server is running at: http://localhost:${PORT}`);
+  }
 });

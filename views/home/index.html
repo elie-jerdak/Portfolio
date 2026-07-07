@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
     <link href="static/styles.css" rel="stylesheet" />
-    
+        
     <style>
       .title strong {
         color: hsl(155, 100%, 65%);
@@ -16,21 +17,20 @@
       }
     </style>
 
-  
   </head>
   
   <body>
   
-    <nav>
-      <a href="">Home</a>
-      <a href="">Expertise</a>
-      <a href="">Projects</a>
-      <a href="">Contact Me</a>
-      
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 9H5c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1zM5 15h14c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
-    </nav>
+    <div id="navbar"></div>
 
     <main>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" 
+        height="24px" 
+        viewBox="0 0 24 24" 
+        width="24px">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M19 9H5c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1zM5 15h14c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+      </svg>
       <section class="hero-section">
           <div class="d-flex g-5">
 
@@ -138,83 +138,22 @@
           </div>
           
 
-          <div class="card card1">
-            <div>
-              <h2>Fitness Club</h2>
-              <p>
-                QR attendance, Stripe integration,
-                analytics and scheduling system.
-              </p>
-            </div>
-
-            <a href="#">View Project</a>
-          </div>
-
-          <div class="card card2">
-            <div>
-              <h2>Connect 4 AI</h2>
-              <p>
-                Minimax visualization with alpha-beta
-                pruning and move heatmaps.
-              </p>
-            </div>
-
-            <a href="#">View Project</a>
-          </div>
-
-          <div class="card card3">
-            <div>
-              <h2>Node Commerce</h2>
-              <p>
-                Full-stack e-commerce platform
-                with CI/CD and deployment.
-              </p>
-            </div>
-
-            <a href="#">View Project</a>
-          </div>
+          <div id="projects-container"></div>
         
           <div id="anchor">
-            <a href="" class="btn btn-primary">View All Projects   <i class="bi bi-arrow-right"></i></a>
+            <a href="/projects" class="btn btn-primary">View All Projects   <i class="bi bi-arrow-right"></i></a>
           </div>
 
-        
       </div>
 
       </section>
     </main>
 
-  <footer class="footer container-column-center">
-    <h1>Built by Elie Jerdak</h1>
-    <h4>Full-Stack Developer  AI • Backend Systems</h4>
-
-    <div class="footer-links container-between">
-      <a href="https://github.com/elie-jerdak"><i class="bi bi-github"></i></a>
-      <a href="#"><i class="bi bi-linkedin"></i></a>
-      <a href="mailto:jardakelie@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-    </div>
-
-    <div>
-      <span>© 2026 All rights reserved • </span>
-      <span style="text-decoration: underline; text-underline-offset: 3px;"> Terms & Conditions</span>
-    </div>
-    
-  </footer>
+    <div id="footer"></div>
  
+    <div id="scripts"></div> 
     
-
-    <!-- Load tsParticles Main Bundle (Includes Absorbers support natively) -->
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@4/tsparticles.engine.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4/tsparticles.slim.bundle.min.js"></script>
-    
-    <!-- Load Bootsrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    
-    <!-- Load GSAP-->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    
-    <!-- Load custom scripts-->
-    <script src="static/scripts.js"></script>
+    <script src="/static/components.js"></script>
+  
   </body>
 </html>

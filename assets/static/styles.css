@@ -66,7 +66,7 @@
 
 body {
   font-family: 'Manrope'; 
-  background: hsl(0, 0%, 7%) !important;
+  background: hsl(0, 0%, 7%) ;
   color: var(--text);
   padding: 0 0;
   margin: 0;
@@ -308,20 +308,6 @@ main {
   z-index: 0;
 }
 
-.cards-container{
-  position:sticky;
-  top:0;
-
-  height:105vh;
-  width:100%;
-
-  overflow:hidden;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
- 
 .project-header{
   position:absolute;
   left:50%;
@@ -336,16 +322,23 @@ main {
 }
 /* CARD */
 
+.cards-container{
+  position:sticky;
+  top:0;
+
+  height:105vh;
+  width:100%;
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .card{
-  position:absolute;
-
-  width:350px;
-  height:380px;
-
   border-radius:24px;
-
   padding:24px;
-
   backdrop-filter:blur(16px);
 
   /* futuristic glass background */
@@ -357,7 +350,6 @@ main {
     );
 
   border:1px solid var(--secondaryHi);
-
   box-shadow:
     0 0 20px var(--primaryHi),
     0 0 60px hsla(155, 100%, 65%, 0.08),
@@ -368,12 +360,6 @@ main {
   justify-content:space-between;
 
   cursor:pointer;
-
-  will-change:transform;
-
-  left:50%;
-  top:50%;
-
   overflow:hidden;
 
   transition:
@@ -491,29 +477,37 @@ main {
     0 0 10px var(--accentHi);
 }
 
+.projects-home .card {
+  position:absolute;
+  will-change:transform;
+  width:350px;
+  height:380px;
+  left:50%;
+  top:50%;
+}
+
 #anchor {
   display: flex;
   align-self: end;
   margin-bottom: 1em;
 }
 
+#footer {
+  width: 100%;
+}
+
 footer {
-  background: hsl(0, 0%, 7%);
+  background: hsla(0, 0%, 7%, 0.2);
   height: 50vh;
   display: flex;
   align-items: center;
-}
-
-.footer{
+  
   padding:80px 20px;
-  text-align:center;
-
-  color:var(--textDim);
- 
-  border-top:1px solid var(--secondaryHi);
+  text-align:center; 
+  color:var(--textDim); 
 }
 
-.footer p{
+footer p{
   margin:6px 0;
 }
 
@@ -534,4 +528,139 @@ footer a{
 footer a:hover{
   color:var(--accent);
   cursor: pointer;
+}
+
+.project-body {
+  background: url('/images/project-background-7.jpg') no-repeat center center fixed; 
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  width: 80%;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  align-self: center;
+}
+
+.projects-grid .card {
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.projects-grid .card:nth-child(2n) {
+  animation-delay: -2s;
+}
+
+.projects-grid .card:nth-child(3n) {
+  animation-delay: -4s;
+}
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.projects-grid .card:hover {
+  border-color: var(--primary);
+  box-shadow:
+    0 0 25px var(--primaryHi),
+    0 0 80px hsla(155, 100%, 65%, 0.15);
+
+  animation-play-state: paused;
+  transform: translateY(-20px);
+}
+
+.card-header {
+	display: flex; 
+  justify-content: space-between;
+  border-bottom: 1px solid black; 
+  align-items: center;
+  padding: 0; 
+}
+
+.card-header h5 {
+  font-weight: bolder;
+  width: 61%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tech-stack {
+	display: flex;
+  justify-content: space-evenly; 
+  flex-wrap: wrap;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  gap: 0.5em;
+}
+
+.tech-badge {  
+  width: fit-content; 
+}
+
+.card-links{ 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  text-align: center;
+}
+
+.card-links a { 
+	width: 50%;
+}
+
+.card-links button { 
+  color:var(--primary);
+  text-decoration:none;
+  background: none;
+  font-weight:600;
+  z-index: 1;
+  
+  width:fit-content; 
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.modal-header, 
+.modal-content {
+  background:  none;
+  color: #fff;
+}
+
+/* Target the scrollable body of the Bootstrap modal */
+.modal-dialog-scrollable .modal-body {
+  /* W3C Standard (Firefox) */
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* format: thumb track */
+}
+
+/* Chromium Browsers (Chrome, Safari, Edge) */
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar {
+  width: 8px; /* Dictates vertical scrollbar width */
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
+  background: transparent !important; /* Forces the track background to be invisible */
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* The scrolling bubble indicator */
+  border-radius: 10px;                         /* Smooth rounded capsule style */
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Slightly brightens up on mouse hover */
 }

@@ -48,13 +48,13 @@ async function loadComponent(elementId, componentPath) {
 
 async function initializeComponents() {
 
-    await Promise.all([
+    const components = [
         loadComponent("navbar", "/components/navbar.html"),
-        loadComponent("footer", "/components/footer.html"),
-        loadComponent("scripts", "/components/scripts.html")        
-    ]);
-
+        loadComponent("footer", "/components/footer.html")
+    ];
+ 
+    await Promise.all(components);
 }
 
-
 initializeComponents();
+ 

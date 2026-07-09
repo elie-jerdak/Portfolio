@@ -75,10 +75,8 @@ function animate() {
 
 animate();
 
-const hero = document.querySelector("#title");
-
 function triggerWave() {
-  const interactiveLetters = hero.querySelectorAll(".wave-word .letter");
+  const interactiveLetters = title.querySelectorAll(".wave-word .letter");
 
   interactiveLetters.forEach((letter, i) => {
     letter.style.animation = "none";
@@ -99,11 +97,13 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.6
 });
 
-observer.observe(hero);
+observer.observe(title);
 
 // Ensure tsParticles initializes correctly once the DOM layer loads
+
 (async () => {
   await loadSlim(tsParticles);
+  
   await tsParticles.load({
     id: "tsparticles",
     options: {
@@ -179,9 +179,9 @@ observer.observe(hero);
 })();
 
 
-//dynamic loading of projects in home page:
-async function loadProjects() {
-    const container = document.getElementById("projects-container");
+//dynamic loading of featured projects in home page:
+async function loadFeaturedProjects() {
+    const container = document.getElementById("featured-projects-container");
 
     if (!container) {
         console.error("Projects container not found.");
@@ -189,7 +189,7 @@ async function loadProjects() {
     }
 
     try {
-        const response = await fetch("/projects/featured");
+        const response = await fetch("/projects/api/featured");
 
         if (!response.ok) {
             throw new Error(`Failed to fetch projects: ${response.status}`);
@@ -230,9 +230,10 @@ async function loadProjects() {
             `;
 
             container.appendChild(card);
-
-            initializeProjectAnimations(); //load animations after appending the card to the DOM
+ 
         });
+
+        initializeProjectAnimations(); //load animations after appending the card to the DOM
 
     } catch (error) {
         console.error("Error loading projects:", error);
@@ -243,7 +244,7 @@ async function loadProjects() {
     }
 }
 
-loadProjects();
+loadFeaturedProjects();
 
 //GSAP animations for projects section
 function initializeProjectAnimations() {
@@ -306,3 +307,4 @@ function initializeProjectAnimations() {
     }, 0);
 
 }
+

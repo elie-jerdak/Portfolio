@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+        <link href="static/styles.css" rel="stylesheet" />
+        
+        <style> 
+            .title strong {
+                color: hsl(155, 100%, 65%);
+                /* Multi-layered glow: a crisp core outline + a soft, spread-out neon blur */
+                text-shadow: 0 0 10px hsla(155, 100%, 65%, 0.2);
+            }
+        </style>
+    </head>
+    <body class="contact-body">
+        <div id="navbar"></div>
+        
+        <main> 
+            
+            <div class="row contact-intro">
+                <div class="col text-container" style="position: relative; overflow: hidden; height: 50vh;">
+                    <h1 style="align-self: center;">Let's Connect !</h1>
+                    <h5 class="w-50" style="text-align: justify;">
+                        Whether you have a project in mind, an exciting opportunity, a technical question, or simply want to connect, I'd be happy to hear from you. 
+                        I'm always open to discussing new ideas, collaborating on meaningful projects, or exploring software engineering opportunities. 
+                    </h5>
+                    <div id="contact-particles"></div>
+                </div>
+            </div>
+
+            <div class="row p-3 flex-column contact-card mt-4">
+                <h2>Contact Cards</h2>
+                <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+                    <div class="col-md-3 card">
+                        <i class="bi bi-envelope-fill me-2"></i> 
+                        <div class="info-container">
+                            <h4>Email</h4>
+                            <p><a href="#contact-anchor" class="text-decoration-none">jardakelie@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 card">
+                        <i class="bi bi-linkedin"></i>
+                        <div class="info-container">
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/jardakelie/" target="_blank" >linkedin.com/in/jardakelie</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 card">
+                        <i class="bi bi-github"></i>
+                        <div class="info-container">
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/elie-jerdak" target="_blank" >github.com/elie-jerdak</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 card">
+                        <i class="bi bi-telephone"></i>
+                        <div class="info-container">
+                            <h4>Phone</h4>
+                            <p>+961 76 03 33 23</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 card">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="info-container">
+                            <h4>Location</h4>
+                            <p>Ain el Sindianeh, Maten, main road</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <section class="availability-cta">
+
+                <div class="availability">
+                    <div class="availability-content">
+                        <div class="d-flex">
+                            <h1>Available for my Next Challenge</h1>
+                            <span class="badge" style="align-self: center; height: min-content; width: 30%;">
+                                Available
+                            </span>
+                        </div>
+                        
+                        <p class="mt-4" style="width: 80%;">
+                            Always looking for new opportunities
+                            where I can contribute my skills and continue growing.
+                        </p>
+                    </div>                    
+                </div>
+
+                <div class="resume">
+
+                    <div class="resume-content" style="justify-self: end; width: 65%;">
+                        
+                        <p>
+                            Download my resume to learn more about my experience,
+                            projects, and technical skills.
+                        </p>
+
+                        <h1 class="mt-2">Interested in my background?</h1>
+                        <span class="d-flex w-100" style="justify-content: center;"> 
+                            <a href="/assets/resume.pdf" class="btn btn-primary w-50 mt-2" download>
+                                Download Resume
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="row p-3" id="contact-anchor">
+                <div class="col-md-6">
+                    <h1 class="title" style="align-self: center;">Talk To  <strong>Me <span class="wave-word">Directly</strong></span></strong></h1>
+                    <p>Let's Build the Next Big Thing Together. Hiring a dedicated engineer is just one click away. Drop me a line with your project ideas or open roles, and let's turn them into production-ready software.</p>
+                </div>
+                <div class="col-md-6">
+                    <form id="contact-form" class="card" >
+                        <input name="name" placeholder="Your Name" required>
+                        <input name="email" type="email" placeholder="Your Email" required>
+                        <input name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        
+                        <button type="submit" class="btn-primary w-50">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+        
+        <div id="footer"></div>
+        
+        <!-- Load tsParticles Main Bundle (Includes Absorbers support natively) -->
+        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@4/tsparticles.engine.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4/tsparticles.slim.bundle.min.js"></script>
+        
+        <!-- Load GSAP-->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    
+        <script src="/static/components.js"></script>
+ 
+        <!-- Load Bootsrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+          
+        <script src="/static/contactscripts.js"></script>
+
+  </body>
+</html>

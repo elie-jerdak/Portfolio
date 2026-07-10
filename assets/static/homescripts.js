@@ -41,7 +41,7 @@ window.addEventListener("resize", () => {
   });
 });
 
-// 5. Animation loop (smooth 60fps control)
+// 5. Animation loop (smooth 60fps control) for repulsion effect
 function animate() {
   for (let i = 0; i < letterData.length; i++) {
     const l = letterData[i];
@@ -75,6 +75,7 @@ function animate() {
 
 animate();
 
+// interactive keyword wave effect on scroll
 function triggerWave() {
   const interactiveLetters = title.querySelectorAll(".wave-word .letter");
 
@@ -100,7 +101,6 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(title);
 
 // Ensure tsParticles initializes correctly once the DOM layer loads
-
 (async () => {
   await loadSlim(tsParticles);
   

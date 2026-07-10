@@ -2,8 +2,10 @@ require("dotenv").config();
 
 const express = require("express");
 
+const contactRoutes = require("./routes/contactRoutes");
 const projectRoutes = require("./routes/projectsRoutes");
 const homeRoutes = require("./routes/homeRoutes");
+
 const errorHandler = require("./middleware/errorHandler");
 const notFound = require("./middleware/notFound");
 
@@ -21,6 +23,7 @@ app.use(
 
 app.use("/", homeRoutes);
 app.use("/projects", projectRoutes);
+app.use("/contact", contactRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

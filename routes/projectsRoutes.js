@@ -9,9 +9,8 @@ router.get("/", asyncHandler(pageController.getProjectsPage));
 
 // projectRoutes.js
 
+router.get("/api/featured", asyncHandler(pageController.getFeaturedProjects));
 router.get("/api", asyncHandler(pageController.getProjects));
 router.get("/api/:id", asyncHandler(pageController.getProjectById));
-router.get("/api/featured", asyncHandler(pageController.getFeaturedProjects));
 router.post("/api", asyncHandler(pageController.createProject));
-
 module.exports = router;

@@ -14,7 +14,7 @@
   --secondaryHi: hsla(156, 51%, 30%, 50%);
   --accent: hsl(155, 100%, 94%);
   --accentBg: hsla(155, 100%, 94%, 1%);
-  --accentHi: hsla(155, 100%, 100%, 25%);
+  --accentHi: hsla(155, 100%, 100%, 25%); 
 }
 
 .btn-primary {
@@ -50,7 +50,7 @@
   box-shadow: 0 0 15px hsla(155, 100%, 65%, 0.4);
   transform: scale(1.10);
 }
-
+ 
 .container-between {
   display: flex;
   justify-content: space-between;
@@ -62,6 +62,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+button {
+  z-index: 1;
 }
 
 body {
@@ -287,8 +291,10 @@ main {
   width: 100%;
   height: 200vh;
   background: var(--secondary);
+  text-align: justify;
   clip-path: polygon(0% 5%, 100% 30%, 100% 70%, 0% 90%); /*polygon(top-left, top-right, bottom-right, bottom-left)*/
 }
+ 
 
 .slanted-comp {
   height: 137vh;
@@ -501,8 +507,6 @@ footer {
   height: 50vh;
   display: flex;
   align-items: center;
-  
-  padding:80px 20px;
   text-align:center; 
   color:var(--textDim); 
 }
@@ -663,4 +667,155 @@ footer a:hover{
 
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.5); /* Slightly brightens up on mouse hover */
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 1rem;
+  width: 70%;
+  backdrop-filter: blur(0px);
+  align-items: center;
+}
+
+input, textarea {
+  background: var(--secondaryBg);
+  color: var(--text);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  box-shadow: 3px 3px 0 1px #082d1c;
+  z-index: 1;
+  width: 100%;
+} 
+
+.contact-body { 
+  /* background-image: url("/images/contact-background-1.avif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; */
+  width: 100%;
+  height: 100%; 
+}
+
+
+#contact-anchor {
+  height: 50vh;
+}
+
+.contact-card {
+  height: 50vh;
+}
+
+.contact-card .card{
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  backdrop-filter: brightness(2.5) blur(0px);
+}
+.contact-card i {
+  font-size: 3rem;
+  color: var(--primary); 
+  width: 25%;
+  align-self: center;
+  text-align: center;
+}
+.info-container {
+  width: 75%;
+  align-items: center;
+}
+
+.contact-card h4{
+  font-weight: bold;
+  color: var(--text);
+}
+
+.contact-card p{
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600; 
+  
+  width:fit-content; 
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.contact-intro {
+  height: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.contact-intro .text-container {
+    padding: 2%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+ 
+
+.availability-cta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4em;
+  align-items: center; 
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.availability {
+  width: 70%;
+  margin-right: -18%;
+  height: 100%;
+  align-content: center;
+  background: hsla(155, 95%, 14%, 0.758);;
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+}
+
+.availability-content, .resume-content{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: start;
+  padding: 3em;
+}
+
+.availability-cta h1 {
+  font-weight: bold; 
+}
+
+.resume {
+  width: 70%; 
+  height: 100%;
+  margin-left: -18%;
+  background: var(--secondary);
+  align-content: center;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#contact-particles {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 0;
 }

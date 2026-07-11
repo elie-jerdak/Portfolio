@@ -1,4 +1,5 @@
 const path = require("path");
+const prisma = require("../db");
 
 exports.getExpertisePage = (req, res) => {
     res.sendFile(
@@ -50,7 +51,6 @@ exports.getTechnologies = async (req, res) => {
                 technologies: true
             }
         });
-
 
         const projectTechnologies = projects
             .flatMap(project => project.technologies || [])

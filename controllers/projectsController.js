@@ -59,19 +59,3 @@ exports.getProjectById = async (req,res)=>{
     res.json(project);
 };
 
-exports.createProject = async (req, res) => {
-    const { title, description = "", url = "" } = req.body;
-
-    if (!title) {
-        return res.status(400).json({
-            error: "Project title is required."
-        });
-    }
-
-    const project = await prisma.projects.create({
-        data: { title, description, url }
-    });
-
-    res.status(201).json(project);
-};
-

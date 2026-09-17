@@ -279,12 +279,12 @@ function initializeProjectAnimations() {
     });
 
     gsap.set(".project-header", {
-        xPercent: 0,
-        yPercent: -260
+        xPercent: -50,
+        yPercent: -320
     });
 
     tl.to(".project-header", {
-        y: -40,
+        xPercent: -50, 
         opacity: 1
     }, 0);
 

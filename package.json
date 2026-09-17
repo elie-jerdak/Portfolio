@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "cross-env NODE_ENV=development node index.js",
     "build": "prisma generate",
-    "dev": "nodemon server.js"
+    "dev": "cross-env NODE_ENV=development nodemon index.js" 
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.0",
+    "cross-env": "^10.1.0",
     "prisma": "^7.8.0"
   }
 }

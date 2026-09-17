@@ -149,9 +149,26 @@ main {
 }
 
 .hero-section img {
-  width: 40%;
+  width: 50%;
   height: auto;
   z-index: -2;
+  margin-top: 2%;
+  margin-right: 5%;
+
+    /* Radial mask configuration */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+}
+
+.hero-3 {
+  width: 50%;
+  height: 50%;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent),
+              linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent),
+                      linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-composite: source-in; 
 }
 
 .title { 
@@ -217,10 +234,6 @@ main {
   fill: var(--text);
 }
 
-.first-neon {
-  top: 8%;
-  right: 15%;
-}
 
 .third-neon {
   top: 8%;
@@ -317,9 +330,7 @@ main {
 .project-header{
   position:absolute;
   left:50%;
-  top:50%;
-
-  transform:translate(-50%, -50%);
+  top:50%; 
 
   text-align:center;
 
@@ -807,6 +818,7 @@ input, textarea {
   background: var(--secondary);
   align-content: center;
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+  display: grid;
 }
 
 #contact-particles {

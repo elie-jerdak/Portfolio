@@ -17,9 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "assets"))); 
 
-app.use(
-    "/components",
-    express.static(path.join(__dirname, "views", "components"))
+app.use("/components", express.static(path.join(__dirname, "views", "components"))
 );
 
 app.use("/", homeRoutes);

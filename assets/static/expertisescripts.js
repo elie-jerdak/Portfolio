@@ -314,60 +314,6 @@ function initializeTimeline() {
     });
 }
 
-// function initializeExpertiseAnimation() {
-
-//     const cards = gsap.utils.toArray(".expertise-card");
-
-//     const tl = gsap.timeline();
-
-//     tl.from(".engineering-expertise h1", {
-//         opacity: 0,
-//         y: -40,
-//         duration: 0.7,
-//         ease: "power3.out"
-//     })
-
-//     .from(".engineering-expertise p", {
-//         opacity: 0,
-//         y: 20,
-//         duration: 0.5
-//     }, "-=0.35");
-
-//     cards.forEach((card, index) => {
-
-//         const column = index % 3;
-
-//         let vars = {
-//             opacity: 0,
-//             duration: 1,
-//             ease: "power3.out"
-//         };
-
-//         if (column === 0) {
-//             // Starts off-screen to the left
-//             vars.x = -window.innerWidth;
-//         }
-//         else if (column === 1) {
-//             // Starts above the viewport
-//             vars.y = -window.innerHeight;
-//         }
-//         else {
-//             // Starts off-screen to the right
-//             vars.x = window.innerWidth;
-//         }
-
-//         tl.from(card, vars, "-=0.55");
-
-//         tl.eventCallback("onComplete", () => {
-//             document.querySelectorAll(".expertise-card").forEach(card => {
-//                 card.classList.add("hover-ready");
-//             });
-//         });
-//     });
-
-    
-// }
-
 function initializeExpertiseAnimation() {
 
     const cards = gsap.utils.toArray(".expertise-card");

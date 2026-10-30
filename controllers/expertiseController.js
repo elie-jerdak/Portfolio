@@ -18,6 +18,7 @@ const technologyIconMap = {
 
     // Frontend
     "HTML5": "html5",    "CSS3": "css3",    "JavaScript": "javascript",    "Bootstrap": "bootstrap",    "GSAP": "gsap",    "EJS": "ejs",
+    "Next.js": "Next.js",    "Typescript": "typescript",
 
     // Backend
     "ASP.NET Core": "dotnet",    "Node.js": "nodejs",    "Express": "express",    "Prisma": "prisma",    "Sequelize": "sequelize",
@@ -25,13 +26,14 @@ const technologyIconMap = {
 
     // Databases
     "PostgreSQL": "postgresql",    "MySQL": "mysql",    "MongoDB": "mongodb",    "SQLite": "sqlite",    "SQL Server": "sqlserver",
+    "Qdrant": "qdrant",  "Redis": "redis",
     
-
     // Languages
     "Python": "python",    "C#": "csharp",
 
     // Data / AI
-    "NumPy": "numpy",    "Pandas": "pandas",    "Scikit-Learn": "scikitlearn",    "Jupyter Notebook": "jupyter",
+    "NumPy": "numpy", "Pandas": "pandas", "Scikit-Learn": "scikitlearn", "Jupyter Notebook": "jupyter", "Ollama": "ollama", 
+    "Nvidia": "nvidia", "OpenRouter": "openrouter", "Cloudflare R2": "cloudflare", "Docling":"docling",
 
     // DevOps / Tools
     "Docker": "docker",    "Git": "git",    "GitHub": "github",    "Render": "render",
